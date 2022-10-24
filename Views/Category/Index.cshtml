@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Category> 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 class="text-start">Category List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-info">
+                <i class="bi bi-plus-circle-dotted">&nbsp;</i>
+                Create new Category
+            </a>
+        </div>
+    </div>
+</div>
+<br /><br />
+
+<table class="table table-bordered table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            @*<th>MyId</th>*@
+            <th>Category Name</th>
+            <th>Display Order</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objContext in Model)
+        {
+            <tr>
+               @* <td>@objContext.MyId</td>*@
+                <td>@objContext.Name</td>
+                <td>@objContext.DisplayOrder</td>
+
+                <td>
+                    <div class=" w-75 btn-group btn-primary mx-2" role="group"></div>
+                            <div class="col-md-12 text-center">
+
+                    <a asp-action="Edit" asp-controller="Category" asp-route-id="@objContext.MyId" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i>Edit</a>
+
+                    <a asp-action="Delete" asp-controller="Category" class="btn btn-danger" asp-route-id="@objContext.MyId"> <i class="bi bi-trash"></i>Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

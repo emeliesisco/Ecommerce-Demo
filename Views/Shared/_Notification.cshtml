@@ -1,0 +1,15 @@
+﻿@if(TempData["saved"] != null)
+    {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript">toastr.saved('@TempData["saved"]')</script>
+          
+    }
+
+@if(TempData["Error"] != null)
+    {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script type="text/javascript">toastr.error('@TempData["error"]')</script>
+
+    }
